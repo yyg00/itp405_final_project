@@ -1,13 +1,14 @@
 @extends('layouts.main')
 @section('title', 'Recipes')
 @section('content')
+@if (session('success'))
+<div class="alert alert-success" role="alert">
+    {{ session('success') }}
+</div>
+@endif
 @if(count($recipes) != 0)
 <div class="container-fluid">
-    @if (session('success'))
-    <div class="alert alert-success" role="alert">
-        {{ session('success') }}
-    </div>
-  @endif
+
 @php($cnt = 0)
 <div class="container mx-auto">
 @foreach($recipes as $recipe)
